@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#121829">
+<title>Le Jardin au Clair de Neige</title>
+<meta name="description" content="Ein musikalischer Wintergruss von Markus an Flurina, November 2026.">
+<meta property="og:title" content="Le Jardin au Clair de Neige">
+<meta property="og:description" content="Ein musikalischer Wintergruss von Markus an Flurina · November 2026">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:type" content="music.album">
+<link rel="icon" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#121829; --night2:#1a2138; --snow:#f6f3ee; --ink:#e9e5ee; --mute:#9a98ab;
+  --peach:#efb9a3; --peach2:#d98f78; --line:rgba(255,255,255,.08);
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+  --safe-b:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{background:var(--night)}
+body{font-family:var(--sans);color:var(--ink);background:var(--night);min-height:100vh;padding-bottom:calc(92px + var(--safe-b))}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block}
+
+/* hero */
+.hero{position:relative;max-width:720px;margin:0 auto}
+.hero img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,24,41,.75) 0%,rgba(18,24,41,.1) 32%,rgba(18,24,41,0) 55%,rgba(18,24,41,.55) 82%,var(--night) 100%)}
+.hero-t{position:absolute;top:calc(env(safe-area-inset-top,0px) + 7%);left:0;right:0;text-align:center;z-index:1;padding:0 20px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,9vw,56px);line-height:1.02;color:#fbf8f2;text-shadow:0 2px 18px rgba(0,0,0,.4)}
+.rule{width:56px;height:1px;background:var(--peach);margin:16px auto}
+.hero .sub{font-family:var(--serif);font-style:italic;font-size:clamp(17px,4.6vw,21px);color:#f5ede6}
+.hero .date{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--peach);margin-top:10px}
+
+.actions{max-width:720px;margin:-8px auto 0;padding:0 20px;position:relative;z-index:2;display:flex;gap:10px;align-items:center}
+.btn-play{flex:1;display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:27px;background:var(--peach);color:#1a1420;font-weight:500;font-size:16px;box-shadow:0 8px 24px rgba(239,185,163,.25)}
+.btn-play svg{width:18px;height:18px}
+.btn-ghost{height:54px;padding:0 18px;border-radius:27px;border:1px solid rgba(255,255,255,.22);display:flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;color:var(--ink)}
+.meta{max-width:720px;margin:14px auto 0;padding:0 20px;font-size:13px;color:var(--mute)}
+
+/* list */
+.list{max-width:720px;margin:22px auto 0;padding:0 8px}
+.row{display:flex;align-items:center;gap:14px;padding:10px 12px;border-radius:14px;width:100%;text-align:left}
+.row:active{background:var(--night2)}
+.row.on{background:var(--night2)}
+.row .th{width:48px;height:64px;border-radius:8px;overflow:hidden;flex:none;position:relative}
+.row .th img{width:100%;height:100%;object-fit:cover}
+.row .tx{flex:1;min-width:0}
+.row .tt{font-family:var(--serif);font-size:21px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row.mv .tt{font-style:italic}
+.row .ts{font-size:12px;color:var(--mute);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row.on .tt{color:var(--peach)}
+.row .d{font-size:12px;color:var(--mute);font-variant-numeric:tabular-nums}
+.row .more{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;color:var(--mute)}
+.row .more svg{width:20px;height:20px}
+.eq{position:absolute;inset:0;background:rgba(18,24,41,.55);display:none;align-items:flex-end;justify-content:center;gap:3px;padding-bottom:22px}
+.row.on .eq{display:flex}
+.eq i{width:3px;background:var(--peach);border-radius:2px;height:8px;animation:eq 1s infinite ease-in-out}
+.eq i:nth-child(2){animation-delay:.2s}.eq i:nth-child(3){animation-delay:.4s}
+.paused .eq i{animation-play-state:paused}
+@keyframes eq{0%,100%{height:5px}50%{height:18px}}
+
+.foot{max-width:720px;margin:40px auto 0;padding:0 24px 30px;text-align:center;color:var(--mute);font-size:12px;line-height:1.7}
+.foot em{font-family:var(--serif);font-size:17px;color:var(--ink)}
+
+/* mini player */
+.mini{position:fixed;left:8px;right:8px;bottom:calc(8px + var(--safe-b));z-index:20;background:rgba(30,37,60,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);overflow:hidden;transform:translateY(140%);transition:transform .35s ease;max-width:720px;margin:0 auto}
+.mini.show{transform:none}
+.mini .bar{height:3px;background:rgba(255,255,255,.1)}
+.mini .bar i{display:block;height:100%;width:0;background:var(--peach)}
+.mini .in{display:flex;align-items:center;gap:12px;padding:10px 10px 10px 10px}
+.mini .open{display:flex;align-items:center;gap:12px;flex:1;min-width:0;text-align:left}
+.mini img{width:44px;height:44px;border-radius:8px;object-fit:cover}
+.mini .mt{font-family:var(--serif);font-size:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mini .ms{font-size:11px;color:var(--mute)}
+.ib{width:44px;height:44px;display:grid;place-items:center;border-radius:50%}
+.ib svg{width:24px;height:24px}
+
+/* full player */
+.full{position:fixed;inset:0;z-index:30;background:var(--night);overflow-y:auto;-webkit-overflow-scrolling:touch;transform:translateY(100%);transition:transform .38s cubic-bezier(.2,.8,.2,1);overscroll-behavior:contain}
+.full.show{transform:none}
+.fbg{position:relative;height:min(62vh,640px)}
+.fbg img{width:100%;height:100%;object-fit:cover}
+.fbg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,24,41,.55) 0%,rgba(18,24,41,0) 22%,rgba(18,24,41,0) 60%,var(--night) 100%)}
+.fclose{position:absolute;top:calc(env(safe-area-inset-top,0px) + 10px);left:10px;z-index:2;width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.28);display:grid;place-items:center}
+.fshare{left:auto;right:10px}
+.fclose svg{width:22px;height:22px}
+.fbody{max-width:620px;margin:-40px auto 0;position:relative;z-index:1;padding:0 24px calc(40px + var(--safe-b))}
+.fnum{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--peach)}
+.ftitle{font-family:var(--serif);font-weight:400;font-size:clamp(30px,8vw,42px);line-height:1.08;margin-top:6px}
+.fsub{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:18px;margin-top:4px}
+.seek{margin-top:22px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(to right,var(--peach) var(--p,0%),rgba(255,255,255,.15) var(--p,0%))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#fff;margin-top:-6px}
+input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:rgba(255,255,255,.15)}
+input[type=range]::-moz-range-progress{height:4px;border-radius:2px;background:var(--peach)}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border:0;border-radius:50%;background:#fff}
+.times{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);font-variant-numeric:tabular-nums;margin-top:-2px}
+.ctrl{display:flex;align-items:center;justify-content:center;gap:28px;margin-top:14px}
+.ctrl .ib svg{width:30px;height:30px}
+.big{width:72px;height:72px;border-radius:50%;background:var(--peach);color:#1a1420;display:grid;place-items:center}
+.big svg{width:30px;height:30px}
+.opts{display:flex;justify-content:center;margin-top:18px}
+.chip{font-size:12px;padding:8px 14px;border-radius:18px;border:1px solid rgba(255,255,255,.18);color:var(--mute)}
+.chip.on{border-color:var(--peach);color:var(--peach)}
+.lyr{margin-top:34px;font-family:var(--serif);font-size:18px;line-height:1.55;color:#ece8f0}
+.lyr p{margin-bottom:20px}
+.lyr .it{font-style:italic;color:#b9a8b4}
+.lyr .lab{font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--peach);margin-bottom:14px}
+.instr{margin-top:34px;font-family:var(--serif);font-style:italic;font-size:20px;color:#cfc9d8;text-align:center}
+.hidden{display:none!important}
+@media(min-width:760px){ .hero img{aspect-ratio:16/10} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="img/cover.jpg" alt="Le Jardin au Clair de Neige – Cover">
+  <div class="hero-t">
+    <h1>Le Jardin au Clair de Neige</h1>
+    <div class="rule"></div>
+    <p class="sub">Ein musikalischer Wintergruss<br>von Markus an Flurina</p>
+    <p class="date">November 2026</p>
+  </div>
+</header>
+
+<div class="actions">
+  <button class="btn-play" id="playAll"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg><span id="playAllLabel">Album abspielen</span></button>
+  <a class="btn-ghost" href="booklet-le-jardin-au-clair-de-neige.pdf" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h10l6 6v10H4z"/><path d="M14 4v6h6"/></svg>Booklet</a>
+</div>
+<p class="meta">15 Titel · 53 min · Chansons en français &amp; English · Suite en cinq mouvements</p>
+
+<main class="list" id="list"></main>
+
+<footer class="foot">
+  <em>Pour Flurina, avec tendresse.</em><br>
+  Idée, concept et réalisation : Markus · Musique et voix créées avec Suno
+</footer>
+
+<div class="mini" id="mini">
+  <div class="bar"><i id="miniBar"></i></div>
+  <div class="in">
+    <button class="open" id="openFull" aria-label="Player öffnen">
+      <img id="miniImg" alt="">
+      <div style="min-width:0"><div class="mt" id="miniTitle"></div><div class="ms" id="miniSub"></div></div>
+    </button>
+    <button class="ib" id="miniPlay" aria-label="Play/Pause"></button>
+    <button class="ib" id="miniNext" aria-label="Nächster Titel"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5.5v13a1 1 0 0 0 1.55.83L16 13.7V18a1 1 0 0 0 2 0V6a1 1 0 0 0-2 0v4.3L7.55 4.67A1 1 0 0 0 6 5.5z"/></svg></button>
+  </div>
+</div>
+
+<section class="full" id="full" aria-hidden="true">
+  <div class="fbg"><img id="fImg" alt=""></div>
+  <button class="fclose" id="closeFull" aria-label="Schliessen"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+  <button class="fclose fshare" id="share" aria-label="Teilen"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M12 3v12M7 8l5-5 5 5M5 13v7h14v-7"/></svg></button>
+  <div class="fbody">
+    <div class="fnum" id="fNum"></div>
+    <h2 class="ftitle" id="fTitle"></h2>
+    <div class="fsub" id="fSub"></div>
+    <div class="seek"><input type="range" id="seek" min="0" max="1000" value="0" aria-label="Position"></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="ctrl">
+      <button class="ib" id="prev" aria-label="Vorheriger Titel"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 5.5v13a1 1 0 0 1-1.55.83L8 13.7V18a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v4.3l8.45-5.63A1 1 0 0 1 18 5.5z"/></svg></button>
+      <button class="big" id="fPlay" aria-label="Play/Pause"></button>
+      <button class="ib" id="next" aria-label="Nächster Titel"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5.5v13a1 1 0 0 0 1.55.83L16 13.7V18a1 1 0 0 0 2 0V6a1 1 0 0 0-2 0v4.3L7.55 4.67A1 1 0 0 0 6 5.5z"/></svg></button>
+    </div>
+    <div class="opts"><button class="chip" id="single">Nur diesen Titel</button></div>
+    <div id="fText"></div>
+  </div>
+</section>
+
+<audio id="audio" preload="metadata"></audio>
+
+<script>
+const T = [{"n": 1, "kind": "song", "title": "Première neige", "sub": "Français", "dur": 189.56, "src": "audio/01-premiere-neige.mp3", "img": "img/tracks/01.jpg", "sq": "img/tracks/01-sq.jpg", "full": "Première neige", "lyrics": [["Flurina s'éveille, la fenêtre est blanche,", "un silence qu'elle n'a jamais entendu,", "la rue d'hier sous la nuit se penche,", "et quelque chose de doux est venu."], ["Elle ne connaissait du soleil que le bruit,", "la chaleur qui bourdonne au creux des pierres,", "chaque souffle devient un nuage qui fuit,", "et chaque nuage est à elle, tout entière."], ["Elle attrape un flocon qui se défait,", "une étoile parfaite, le temps d'un soupir,", "et sait qu'aucun jamais ne retombe tout à fait", "comme le précédent, ni ne saura revenir."], ["Première neige. Elle ne reviendra pas."]]}, {"n": 2, "kind": "mvt", "title": "I. Ouverture", "sub": "Orchestre impressionniste · électronique sombre", "dur": 255.04, "src": "audio/02-ouverture.mp3", "img": "img/tracks/02.jpg", "sq": "img/tracks/02-sq.jpg", "full": "Le Jardin au Clair de Neige : I. Ouverture"}, {"n": 3, "kind": "song", "title": "First Snow", "sub": "English", "dur": 218.0, "src": "audio/03-first-snow.mp3", "img": "img/tracks/03.jpg", "sq": "img/tracks/03-sq.jpg", "full": "First Snow", "lyrics": [["Flurina woke to a window gone white,", "a silence she had never heard before,", "the street she knew had vanished in the night,", "and something soft was piling at the door."], ["She'd only known the sun as something loud,", "the kind of heat that hums inside the stone,", "now every breath became a little cloud,", "and every cloud she made was hers alone."], ["She caught a flake and watched it come undone,", "a perfect star that lasted half a sigh,", "and knew that every single one would be the one", "that never falls the same way from the sky."], ["First snow. It won't come back."]]}, {"n": 4, "kind": "song", "title": "Faux dégel", "sub": "Français", "dur": 198.76, "src": "audio/04-faux-degel.mp3", "img": "img/tracks/04.jpg", "sq": "img/tracks/04-sq.jpg", "full": "Faux dégel", "lyrics": [["La radio disait plus doux pour demain,", "Flurina a sorti ses sandales près du lit,", "elle voyait les glaçons emprunter en vain", "un peu de lumière, et peignait juin aussi."], ["Le voilà, l'été, le voilà, le"], ["Le matin est venu, le givre sur le verre,", "un bleu plus calme et un peu plus froid,", "elle apprit que l'été ne vient qu'à qui sait faire", "la longue traversée de l'hiver, pas à pas."], ["Le voilà, l'été, le voilà, le"]]}, {"n": 5, "kind": "mvt", "title": "II. Scherzo Mystérieux", "sub": "Flûte, célesta, pizzicati · acid breakbeat", "dur": 223.2, "src": "audio/05-scherzo-mysterieux.mp3", "img": "img/tracks/05.jpg", "sq": "img/tracks/05-sq.jpg", "full": "Le Jardin au Clair de Neige : II. Scherzo Mystérieux"}, {"n": 6, "kind": "song", "title": "False Thaw", "sub": "English", "dur": 222.0, "src": "audio/06-false-thaw.mp3", "img": "img/tracks/06.jpg", "sq": "img/tracks/06-sq.jpg", "full": "False Thaw", "lyrics": [["The radio said warmer by tomorrow,", "Flurina set her sandals by the bed,", "she watched the icicles begin to borrow", "a little light, and painted June instead."], ["Here it comes, the summer, here it"], ["The morning came with frost upon the glass,", "a quieter and colder kind of blue,", "she learned the warmer days will only pass", "to those who wait the whole long winter through."], ["Here it comes, the summer, here it"]]}, {"n": 7, "kind": "song", "title": "Ce que fait la neige", "sub": "Français", "dur": 197.6, "src": "audio/07-ce-que-fait-la-neige.mp3", "img": "img/tracks/07.jpg", "sq": "img/tracks/07-sq.jpg", "full": "Ce que fait la neige", "lyrics": [["La neige a pris chaque pas dans la rue,", "les voitures, les chiens, les voix de la place,", "Flurina s'arrête, écoute ses pas perdus,", "et son cœur qui bat dans l'air qui s'efface."], ["Là-bas l'été ne cessait jamais son bruit,", "cigales, scooters, musique à travers le mur,", "mais ici le monde a rangé ses jouets la nuit", "et lui apprend le silence, doux et pur."], ["Et une fois, une seule, un train dans le blanc,", "une vague grave qui secoue chaque sapin gelé,", "puis plus rien, que la nuit, le silence lent,", "et dans ce silence, tout ce qu'elle pourrait être, révélé."]]}, {"n": 8, "kind": "mvt", "title": "III. Badinerie", "sub": "Clavecin baroque · filter house", "dur": 247.28, "src": "audio/08-badinerie.mp3", "img": "img/tracks/08.jpg", "sq": "img/tracks/08-sq.jpg", "full": "Le Jardin au Clair de Neige : III. Badinerie"}, {"n": 9, "kind": "song", "title": "What Snow Does", "sub": "English", "dur": 162.04, "src": "audio/09-what-snow-does.mp3", "img": "img/tracks/09.jpg", "sq": "img/tracks/09-sq.jpg", "full": "What Snow Does", "lyrics": [["The snow took every footstep from the street,", "the cars, the dogs, the voices from the square,", "Flurina stood and listened to her feet,", "and heard her own heart beating in the air."], ["Back home the summer never stopped its noise,", "cicadas, scooters, music through the wall,", "but here the world had put away its toys", "and taught her how to hear nothing at all."], ["And once, just once, a train rolled through the white,", "a low wave shaking every frozen tree,", "then gone, and only silence and the night,", "and in the silence, all that she could be."]]}, {"n": 10, "kind": "song", "title": "Compter jusqu'à l'été", "sub": "Français", "dur": 172.76, "src": "audio/10-compter-jusqu-a-l-ete.mp3", "img": "img/tracks/10.jpg", "sq": "img/tracks/10-sq.jpg", "full": "Compter jusqu'à l'été", "lyrics": [["La neige était profonde quand Flurina rêvait,", "avant cela, la glace enfermait la rivière,", "avant cela, le premier flocon, la vitre claire,", "le matin où le monde n'était plus ce qu'il semblait."], ["Avant cela, un long vol, un manteau prêté,", "avant cela, des baisers d'adieu près de la mer,", "avant cela, août, tout d'or et de lumière,", "un air de sa mère, une note d'été."], ["Rembobine jusqu'à la chaleur qu'elle a perdue,", "l'été, et l'instant où il a disparu."], ["Avant cela, l'été n'avait pas de nom,", "il était, comme le souffle, comme le soleil,", "et maintenant elle remonte le temps, à reculons,", "jusqu'à quatre petits clics, et l'été se réveille."], ["(Un, deux, trois, quatre)"]]}, {"n": 11, "kind": "mvt", "title": "IV. Nocturne", "sub": "Harpe, piano, célesta · ambient techno", "dur": 218.76, "src": "audio/11-nocturne.mp3", "img": "img/tracks/11.jpg", "sq": "img/tracks/11-sq.jpg", "full": "Le Jardin au Clair de Neige : IV. Nocturne"}, {"n": 12, "kind": "song", "title": "Count to Summer", "sub": "English", "dur": 223.2, "src": "audio/12-count-to-summer.mp3", "img": "img/tracks/12.jpg", "sq": "img/tracks/12-sq.jpg", "full": "Count to Summer", "lyrics": [["The snow lay deep the night Flurina dreamed,", "before that, ice had locked the river tight,", "before that, the first flake, the window white,", "the morning that the world was not what it seemed."], ["Before that, a long flight and a borrowed coat,", "before that, goodbye kisses by the sea,", "before that, August, burning gold and free,", "a song her mother hummed, a single note."], ["Rewind it to the warmth before she lost it,", "the summer, and the moment that she crossed it."], ["Before that, summer had no name at all,", "it simply was, like breathing, like the sun,", "and now she counts it back through snow and fall,", "till four soft clicks say summer has begun."], ["(One, two, three, four)"]]}, {"n": 13, "kind": "song", "title": "Sous la glace", "sub": "Français", "dur": 192.0, "src": "audio/13-sous-la-glace.mp3", "img": "img/tracks/13.jpg", "sq": "img/tracks/13-sq.jpg", "full": "Sous la glace", "lyrics": [["Ooh...", "Aah..."], ["Flurina rêve comme rêvent les racines,", "de figues, de sel et de longs soirs dorés,", "elle dort en haut, l'été dort sous la colline,", "et tous les deux attendent, enlacés."], ["Sous la neige...", "Aah..."]]}, {"n": 14, "kind": "mvt", "title": "V. Postlude", "sub": "Violoncelle, piano, harpe · glitch", "dur": 232.8, "src": "audio/14-postlude.mp3", "img": "img/tracks/14.jpg", "sq": "img/tracks/14-sq.jpg", "full": "Le Jardin au Clair de Neige : V. Postlude"}, {"n": 15, "kind": "song", "title": "Under the Ice", "sub": "English", "dur": 254.4, "src": "audio/15-under-the-ice.mp3", "img": "img/tracks/15.jpg", "sq": "img/tracks/15-sq.jpg", "full": "Under the Ice", "lyrics": [["Ooh...", "Aah..."], ["Flurina dreams the way the roots do now,", "of figs and salt and evenings long and slow,", "she sleeps above, the summer sleeps below,", "and both of them are waiting, both somehow."], ["Below the snow...", "Aah..."]]}];
+const $ = id => document.getElementById(id);
+const audio = $('audio');
+const PLAY = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg>';
+const PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></svg>';
+const MORE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h10"/></svg>';
+let idx = -1, singleMode = false;
+
+const fmt = s => { s = Math.max(0, Math.floor(s||0)); return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); };
+const label = t => t.kind === 'mvt' ? 'Suite · ' + t.sub : t.sub;
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// list
+$('list').innerHTML = T.map((t,i) => `
+  <div class="row${t.kind==='mvt'?' mv':''}" data-i="${i}" role="button" tabindex="0">
+    <div class="th"><img src="${t.sq}" alt="" loading="lazy"><div class="eq"><i></i><i></i><i></i></div></div>
+    <div class="tx"><div class="tt">${esc(t.title)}</div><div class="ts">${String(t.n).padStart(2,'0')} · ${esc(label(t))}</div></div>
+    <div class="d">${fmt(t.dur)}</div>
+    <button class="more" data-info="${i}" aria-label="Details">${MORE}</button>
+  </div>`).join('');
+
+$('list').addEventListener('click', e => {
+  const info = e.target.closest('[data-info]');
+  if (info) { e.stopPropagation(); const i = +info.dataset.info; if (i !== idx) load(i, false); openFull(); return; }
+  const row = e.target.closest('.row'); if (!row) return;
+  const i = +row.dataset.i;
+  if (i === idx) toggle(); else { singleMode = false; load(i, true); }
+});
+
+function load(i, play) {
+  idx = (i + T.length) % T.length;
+  const t = T[idx];
+  audio.src = t.src;
+  document.querySelectorAll('.row').forEach((r,k) => r.classList.toggle('on', k === idx));
+  $('miniImg').src = t.sq; $('miniTitle').textContent = t.title; $('miniSub').textContent = label(t);
+  $('fImg').src = t.img; $('fNum').textContent = 'Titel ' + String(t.n).padStart(2,'0') + ' / 15';
+  $('fTitle').textContent = t.title;
+  $('fSub').textContent = t.kind === 'mvt' ? 'Le Jardin au Clair de Neige · Suite' : t.sub;
+  $('dur').textContent = fmt(t.dur); $('cur').textContent = '0:00'; setSeek(0);
+  $('fText').innerHTML = t.lyrics
+    ? '<div class="lyr"><div class="lab">' + (t.sub === 'Français' ? 'Paroles' : 'Lyrics') + '</div>' +
+      t.lyrics.map(st => '<p>' + st.map(l => (/^\(|\.\.\.$|^Première neige\.|^First snow\./.test(l) ? '<span class="it">' + esc(l) + '</span>' : esc(l))).join('<br>') + '</p>').join('') + '</div>'
+    : '<p class="instr">' + esc(t.sub) + '</p>';
+  $('mini').classList.add('show');
+  if ('mediaSession' in navigator) {
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: t.full, artist: 'Markus', album: 'Le Jardin au Clair de Neige',
+      artwork: [{src: new URL(t.sq, location.href).href, sizes: '512x512', type: 'image/jpeg'}]
+    });
+  }
+  history.replaceState(null, '', '#' + t.n);
+  if (play) audio.play().catch(()=>{});
+  updateIcons();
+}
+
+function toggle() { if (idx < 0) { load(0, true); return; } audio.paused ? audio.play() : audio.pause(); }
+function updateIcons() {
+  const p = audio.paused;
+  $('miniPlay').innerHTML = p ? PLAY : PAUSE; $('fPlay').innerHTML = p ? PLAY : PAUSE;
+  document.body.classList.toggle('paused', p);
+  $('playAllLabel').textContent = idx < 0 ? 'Album abspielen' : (p ? 'Weiterhören' : 'Pause');
+  $('single').classList.toggle('on', singleMode);
+}
+function setSeek(f) { const s = $('seek'); s.value = Math.round(f*1000); s.style.setProperty('--p', (f*100) + '%'); $('miniBar').style.width = (f*100) + '%'; }
+
+$('playAll').onclick = () => { if (idx < 0) { singleMode = false; load(0, true); } else toggle(); };
+$('miniPlay').onclick = toggle; $('fPlay').onclick = toggle;
+$('miniNext').onclick = () => load(idx + 1, true);
+$('next').onclick = () => load(idx + 1, true);
+$('prev').onclick = () => { if (audio.currentTime > 4) audio.currentTime = 0; else load(idx - 1, true); };
+$('single').onclick = () => { singleMode = !singleMode; updateIcons(); };
+
+audio.addEventListener('play', updateIcons);
+audio.addEventListener('pause', updateIcons);
+audio.addEventListener('loadedmetadata', () => { $('dur').textContent = fmt(audio.duration); });
+let dragging = false;
+audio.addEventListener('timeupdate', () => {
+  if (dragging || !audio.duration) return;
+  $('cur').textContent = fmt(audio.currentTime); setSeek(audio.currentTime / audio.duration);
+});
+audio.addEventListener('ended', () => {
+  if (singleMode) { audio.currentTime = 0; updateIcons(); return; }
+  if (idx < T.length - 1) load(idx + 1, true); else { updateIcons(); }
+});
+const seek = $('seek');
+seek.addEventListener('input', () => { dragging = true; const f = seek.value/1000; setSeek(f); $('cur').textContent = fmt(f*(audio.duration||T[idx].dur)); });
+seek.addEventListener('change', () => { if (audio.duration) audio.currentTime = seek.value/1000*audio.duration; dragging = false; });
+
+function openFull() { $('full').classList.add('show'); $('full').setAttribute('aria-hidden','false'); $('full').scrollTop = 0; }
+function closeFull() { $('full').classList.remove('show'); $('full').setAttribute('aria-hidden','true'); }
+$('openFull').onclick = openFull; $('closeFull').onclick = closeFull;
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeFull(); if (e.key === ' ' && e.target === document.body) { e.preventDefault(); toggle(); } });
+
+// swipe down to close
+let y0 = null;
+$('full').addEventListener('touchstart', e => { y0 = $('full').scrollTop <= 0 ? e.touches[0].clientY : null; }, {passive:true});
+$('full').addEventListener('touchend', e => { if (y0 !== null && e.changedTouches[0].clientY - y0 > 90) closeFull(); y0 = null; }, {passive:true});
+
+$('share').onclick = async () => {
+  const t = T[idx]; const url = location.href.split('#')[0] + '#' + t.n;
+  try { if (navigator.share) await navigator.share({title: t.full + ' – Le Jardin au Clair de Neige', url}); else { await navigator.clipboard.writeText(url); alert('Link kopiert'); } } catch(e){}
+};
+
+if ('mediaSession' in navigator) {
+  navigator.mediaSession.setActionHandler('play', () => audio.play());
+  navigator.mediaSession.setActionHandler('pause', () => audio.pause());
+  navigator.mediaSession.setActionHandler('previoustrack', () => $('prev').onclick());
+  navigator.mediaSession.setActionHandler('nexttrack', () => load(idx + 1, true));
+  try { navigator.mediaSession.setActionHandler('seekto', d => { audio.currentTime = d.seekTime; }); } catch(e){}
+}
+
+// deep link: #3 opens track 3 (single song)
+const h = parseInt(location.hash.slice(1), 10);
+if (h >= 1 && h <= T.length) { load(h - 1, false); singleMode = true; updateIcons(); openFull(); }
+updateIcons();
+</script>
+</body>
+</html>
